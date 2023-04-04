@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block contenido %}
+
+
+<div class="topnav">
+    <h2>Confirmar eliminación</h2>
+
+</div>
+
+<div class="mycard ">
+    <p>¿Estás seguro de que deseas eliminar este objeto?</p>
+    <p>{{ myusuario }}</p>
+    <div class="d-flex justify-content-between">
+        <a href="{% url 'usuarios:detalles' myusuario.id %}" class="btn btn-primary">Cancelar</a>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Eliminar" class="btn btn-danger">
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

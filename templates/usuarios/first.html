@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block contenido %}
+<div class="topnav">
+    <a href="{% url 'usuarios:index' %}">HOME</a>
+</div>
+
+<div class="container">
+    <div class="mycard">
+        <div>
+            <h1>{{titulo}}</h1>
+            <ul>
+                {% for x in myusuarios  %}
+                <li> <a href="{% url 'usuarios:detalles' pk=x.id %}"> {{x.nombre}} {{x.apellido}} </a> | <a
+                        href="{% url 'usuarios:editar' pk=x.id %}" class="btn btn-sm btn-primary">Editar</a> </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a href="{% url 'usuarios:nuevo' %}" class="create_button">Crear Usuario</a>
+    </div>
+</div>
+
+<!--Add create button -->
+{% endblock %}

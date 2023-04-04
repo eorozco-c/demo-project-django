@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block contenido %}
+<div class="topnav">
+    <h1>{{myusuario.nombre}} {{myusuario.apellido}}</h1>
+</div>
+
+<div class="mycard">
+    <p>Email: {{myusuario.email}}</p>
+    <p>Edad: {{myusuario.edad}}</p>
+    <p class="pt-4">Volver a <a href="{% url 'usuarios:usuarios' %}">Usuarios</a> </p>
+    <p><a href="{% url 'usuarios:eliminar' pk=myusuario.id %}" class="btn btn-danger">Eliminar</a> </p>
+    </p>
+</div>
+
+{% endblock contenido %}
